@@ -1,0 +1,28 @@
+{
+  "name": "@saber2pr/aystore",
+  "version": "0.0.1",
+  "description": "> Async Store! 异步的 Store!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Saber2pr/-saber2pr-aystore.git"
+  },
+  "author": "saber2pr",
+  "license": "ISC",
+  "files": [
+    "lib/core/*",
+    "lib/index.*"
+  ],
+  "keywords": [
+    "store",
+    "async",
+    "koa"
+  ],
+  "main": "./lib/index.js",
+  "scripts": {
+    "test": "node ./lib/test/test.js",
+    "start": "tsc --watch"
+  },
+  "devDependencies": {
+    "typescript": "^3.4.3"
+  }
+}
