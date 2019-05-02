@@ -85,6 +85,21 @@ store.request({ url: '/hello', body: 'world!' }).then(res => {
 })
 ```
 
+## 协变
+
+Typescript 对函数参数类型默认允许双向协变，但是它不安全！
+例如组合两个 AyStore 的 body 会涉及到 对 context 的依赖，如果允许双向协变，它将不会报错！
+
+强烈建议开启：--strictFunctionTypes
+
+```json
+{
+  "compilerOptions": {
+    "strictFunctionTypes": true
+  }
+}
+```
+
 ---
 
 ## start
