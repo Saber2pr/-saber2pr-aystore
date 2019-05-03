@@ -2,11 +2,11 @@
  * @Author: saber2pr
  * @Date: 2019-05-02 12:55:24
  * @Last Modified by: saber2pr
- * @Last Modified time: 2019-05-02 14:19:47
+ * @Last Modified time: 2019-05-03 11:42:05
  */
 import { Job, Next } from './compose'
 import { compose } from './compose'
-import { Context, ContextType, Request, Response } from './context'
+import { Context, ContextType, Request, Response, Result } from './context'
 
 export class AyStoreBody<C = Context> {
   public constructor(
@@ -24,26 +24,31 @@ export class AyStoreBody<C = Context> {
   }
 
   private response: Response = {
+    statusCode: 200,
     end: (...value: any[]) => {
       if (value) {
-        this.data = value.length === 1 ? value[0] : value.filter(v => v)
+        this.result.statusCode = this.response.statusCode
+        this.result.value = value.length === 1 ? value[0] : value.filter(v => v)
       }
     }
   }
 
-  private data = null
+  private result: Result = {
+    statusCode: null,
+    value: null
+  }
 
-  public async request(request: Request): Promise<Response>
-  public async request(request: Request): Promise<Response>
-  public async request(request: Request, next: Next): Promise<Response>
+  public async request(request: Request): Promise<Result>
+  public async request(request: Request): Promise<Result>
+  public async request(request: Request, next: Next): Promise<Result>
   public async request(
     request: Request,
     next: Next = () => Promise.resolve()
-  ): Promise<Response> {
+  ): Promise<Result> {
     const { context, response } = this
     const ctx = Object.assign(context, { request, response })
     await this.body()(ctx, next)
-    return this.data
+    return this.result
   }
 }
 

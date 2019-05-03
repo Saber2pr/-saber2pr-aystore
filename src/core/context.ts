@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2019-05-02 13:29:40
  * @Last Modified by: saber2pr
- * @Last Modified time: 2019-05-02 13:56:44
+ * @Last Modified time: 2019-05-03 11:35:28
  */
 export interface Request {
   url: string
@@ -10,7 +10,13 @@ export interface Request {
 }
 
 export interface Response {
+  statusCode: number
   end(...value: any[]): void
+}
+
+export interface Result {
+  statusCode: number
+  value: any
 }
 
 export interface Context {

@@ -1,2 +1,2 @@
 import './test_simple'
-// import './test_strict'
+import './test_strict'
