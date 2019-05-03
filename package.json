@@ -1,6 +1,6 @@
 {
   "name": "@saber2pr/aystore",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "> Async Store! 异步的 Store!",
   "repository": {
     "type": "git",

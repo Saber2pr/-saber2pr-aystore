@@ -10,6 +10,14 @@ npm install @saber2pr/aystore
 git clone https://github.com/Saber2pr/-saber2pr-aystore.git
 ```
 
+# 它用来干什么？
+
+它是浏览器端的虚拟 server 程序
+
+发起 http 请求，你将使用组合中间件的机制来封装接口！
+
+它作为代理去请求后端接口.
+
 # API
 
 1. store.body

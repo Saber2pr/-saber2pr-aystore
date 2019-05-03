@@ -6,7 +6,7 @@
  */
 export type Next = () => Promise<any>
 
-export type Job<T> = (ctx: T, next: Next) => Promise<void>
+export type Job<T = any> = (ctx: T, next: Next) => Promise<void>
 
 export const compose = <T>(...jobs: (Job<T>)[]): Job<T> => async (ctx, next) =>
   jobs.reduceRight(

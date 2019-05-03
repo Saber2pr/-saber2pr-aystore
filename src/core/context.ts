@@ -18,4 +18,4 @@ export interface Context {
   response: Response
 }
 
-export type ContextType<T> = T & Context
+export type ContextType<T = Context> = T & Context
